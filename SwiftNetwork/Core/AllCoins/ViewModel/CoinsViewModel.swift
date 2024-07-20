@@ -11,43 +11,48 @@ import Foundation
 class CoinsViewModel: ObservableObject {
     @Published var coin = ""
     @Published var price = ""
+    @Published var errorMessage: String?
     
     init() {
-        fetchPrice(coin: "litecoin")
         fetchPrice(coin: "bitcoin")
+
     }
     
     func fetchPrice(coin: String) {
-        print(Thread.current)
         let urlString = "https://api.coingecko.com/api/v3/simple/price?ids=\(coin)&vs_currencies=usd"
-        guard let url = URL(string: urlString) else { return } // converting a string to an actual url obj
-        
-        print("Fetching price...") // 1
-        // Reach out to the URL and fetch data back
-        URLSession.shared.dataTask(with: url) { data, response , error in
-            print(Thread.current)
+        guard let url = URL(string: urlString) else { return }
 
-            // completion handler - also know as call back (make a call to the api - wait some time - get back from the server
-            print("Did receieve data \(data)") // 3
-            
-            guard let data = data else { return }
-            guard let jsonObject = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
-            guard let value = jsonObject[coin] as? [String: Double] else { return }
-            guard let price = value["usd"] else {
-                print("failed to get price")
-                return
-            } // safely unwrap optional
-
-            // updating UI has to be on main thread
+        URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async {
-                print(Thread.current)
+//                if let error = error {
+//                    print("DEBUG: failed with error \(error.localizedDescription)")
+//                    self.errorMessage = error.localizedDescription
+//                    return
+//                } // not using guard because if we use guard, there is an error, no print msg
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    self.errorMessage = "Bad HTTP Response"
+                    return
+                }
+                
+                guard httpResponse.statusCode == 200 else {
+                    self.errorMessage = "Failed to fetch with status code \(httpResponse.statusCode)"
+                    return
+                }
+                
+                print("DEBUG: Response code is \(httpResponse.statusCode)")
+                
+                guard let data = data else { return }
+                guard let jsonObject = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else { return }
+                guard let value = jsonObject[coin] as? [String: Double] else {
+                    print("failed to get price")
+                    return
+                }
+                guard let price = value["usd"] else { return } // safely unwrap optional
+                
                 self.coin = coin.capitalized
                 self.price = "$\(price)"
             }
-            
         }.resume() // ! don't forget (mandatory to completion handler
-        
-        print("Did reach end of func...") // 2
     }
     
 }
