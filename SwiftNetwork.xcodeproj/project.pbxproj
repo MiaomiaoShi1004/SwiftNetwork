@@ -51,8 +51,8 @@
 		AA9934D72C4ADB3F00B35B43 /* SwiftNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				AA9934D82C4ADB3F00B35B43 /* SwiftNetworkApp.swift */,
-				AA9934DA2C4ADB3F00B35B43 /* ContentView.swift */,
+				AA9934E72C4B976300B35B43 /* App */,
+				AA9934E62C4B975200B35B43 /* Core */,
 				AA9934DC2C4ADB4100B35B43 /* Assets.xcassets */,
 				AA9934DE2C4ADB4100B35B43 /* Preview Content */,
 			);
@@ -65,6 +65,62 @@
 				AA9934DF2C4ADB4100B35B43 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AA9934E62C4B975200B35B43 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				AA9934E82C4B978000B35B43 /* AllCoins */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		AA9934E72C4B976300B35B43 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AA9934D82C4ADB3F00B35B43 /* SwiftNetworkApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AA9934E82C4B978000B35B43 /* AllCoins */ = {
+			isa = PBXGroup;
+			children = (
+				AA9934E92C4B97B500B35B43 /* Model */,
+				AA9934EA2C4B97BB00B35B43 /* View */,
+				AA9934EB2C4B97C000B35B43 /* ViewModel */,
+				AA9934EC2C4B97C600B35B43 /* Service */,
+			);
+			path = AllCoins;
+			sourceTree = "<group>";
+		};
+		AA9934E92C4B97B500B35B43 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AA9934EA2C4B97BB00B35B43 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AA9934DA2C4ADB3F00B35B43 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AA9934EB2C4B97C000B35B43 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AA9934EC2C4B97C600B35B43 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
