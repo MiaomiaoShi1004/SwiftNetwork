@@ -10,6 +10,7 @@ import Foundation
 // Mark: fetch information from API and supply view with that data
 class CoinsViewModel: ObservableObject {
     @Published var coins = [Coin]()
+    @Published var errorMessage: String?
     
     private let service = CoinDataService()
     
@@ -18,9 +19,13 @@ class CoinsViewModel: ObservableObject {
     }
     
     func fetchCoins() {
-        service.fetchCoins { coins in
+        service.fetchCoins { coins, error in
             DispatchQueue.main.async {
-                self.coins = coins
+                if let error = error {
+                    self.errorMessage = error.localizedDescription
+                    return
+                }
+                self.coins = coins ?? []
             }
         }
     }
