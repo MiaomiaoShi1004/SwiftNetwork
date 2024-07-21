@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CoinDetails: Decodable {
+struct CoinDetails: Codable {
     let id: String
     let symbol: String
     let name: String
@@ -15,7 +15,7 @@ struct CoinDetails: Decodable {
     
 }
 
-struct Description: Decodable {
+struct Description: Codable {
     let text: String // This is just for better naming, if no CodingKeys -> let en: String
     
     enum CodingKeys: String, CodingKey {
