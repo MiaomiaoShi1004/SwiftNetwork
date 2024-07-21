@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		AA67A3BE2C4C641800E52E16 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA67A3BD2C4C641800E52E16 /* Coin.swift */; };
 		AA67A3C02C4C773200E52E16 /* CoinAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA67A3BF2C4C773200E52E16 /* CoinAPIError.swift */; };
+		AA67A3C42C4D4AE200E52E16 /* CoinDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA67A3C32C4D4AE200E52E16 /* CoinDetailsView.swift */; };
+		AA67A3C72C4D4E9B00E52E16 /* CoinDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA67A3C62C4D4E9B00E52E16 /* CoinDetails.swift */; };
+		AA67A3CA2C4D535200E52E16 /* CoinDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA67A3C92C4D535200E52E16 /* CoinDetailsViewModel.swift */; };
 		AA9934D92C4ADB3F00B35B43 /* SwiftNetworkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9934D82C4ADB3F00B35B43 /* SwiftNetworkApp.swift */; };
 		AA9934DB2C4ADB3F00B35B43 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9934DA2C4ADB3F00B35B43 /* ContentView.swift */; };
 		AA9934DD2C4ADB4100B35B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA9934DC2C4ADB4100B35B43 /* Assets.xcassets */; };
@@ -20,6 +23,9 @@
 /* Begin PBXFileReference section */
 		AA67A3BD2C4C641800E52E16 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		AA67A3BF2C4C773200E52E16 /* CoinAPIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinAPIError.swift; sourceTree = "<group>"; };
+		AA67A3C32C4D4AE200E52E16 /* CoinDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsView.swift; sourceTree = "<group>"; };
+		AA67A3C62C4D4E9B00E52E16 /* CoinDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetails.swift; sourceTree = "<group>"; };
+		AA67A3C92C4D535200E52E16 /* CoinDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDetailsViewModel.swift; sourceTree = "<group>"; };
 		AA9934D52C4ADB3F00B35B43 /* SwiftNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9934D82C4ADB3F00B35B43 /* SwiftNetworkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNetworkApp.swift; sourceTree = "<group>"; };
 		AA9934DA2C4ADB3F00B35B43 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,6 +46,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA67A3C12C4D4ABE00E52E16 /* CoinDetails */ = {
+			isa = PBXGroup;
+			children = (
+				AA67A3C52C4D4E8900E52E16 /* Model */,
+				AA67A3C22C4D4AD300E52E16 /* View */,
+				AA67A3C82C4D533600E52E16 /* ViewModel */,
+			);
+			path = CoinDetails;
+			sourceTree = "<group>";
+		};
+		AA67A3C22C4D4AD300E52E16 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AA67A3C32C4D4AE200E52E16 /* CoinDetailsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AA67A3C52C4D4E8900E52E16 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AA67A3C62C4D4E9B00E52E16 /* CoinDetails.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AA67A3C82C4D533600E52E16 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AA67A3C92C4D535200E52E16 /* CoinDetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		AA9934CC2C4ADB3F00B35B43 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				AA9934E82C4B978000B35B43 /* AllCoins */,
+				AA67A3C12C4D4ABE00E52E16 /* CoinDetails */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -205,8 +246,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA67A3C42C4D4AE200E52E16 /* CoinDetailsView.swift in Sources */,
+				AA67A3CA2C4D535200E52E16 /* CoinDetailsViewModel.swift in Sources */,
 				AA67A3C02C4C773200E52E16 /* CoinAPIError.swift in Sources */,
 				AA9934DB2C4ADB3F00B35B43 /* ContentView.swift in Sources */,
+				AA67A3C72C4D4E9B00E52E16 /* CoinDetails.swift in Sources */,
 				AA9934D92C4ADB3F00B35B43 /* SwiftNetworkApp.swift in Sources */,
 				AA9934F22C4BF67100B35B43 /* CoinDataService.swift in Sources */,
 				AA67A3BE2C4C641800E52E16 /* Coin.swift in Sources */,

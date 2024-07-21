@@ -8,7 +8,7 @@
 import Foundation
 
 // We can only include what we want
-struct Coin: Codable, Identifiable {
+struct Coin: Codable, Identifiable, Hashable {
     let id: String
     let symbol: String
     let name: String
