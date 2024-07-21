@@ -10,28 +10,41 @@ import Foundation
 class CoinDataService {
     private let urlString = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&locale=en"
     // Using Result type
-    func fetchCoinsWithResult(completion: @escaping(Result<[Coin], Error>) -> Void) {
+    func fetchCoinsWithResult(completion: @escaping(Result<[Coin], CoinAPIError>) -> Void) {
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
-                completion(.failure(error))
+                completion(.failure(.unknownError(error: error)))
                 return
             }
             
-            guard let data = data else { return }
-            
-            guard let coins = try? JSONDecoder().decode([Coin].self, from: data) else {
-                print("DEBUG: Failed to decode coins")
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(.failure(.requestFailed(description: "Request failed")))
                 return
             }
-
-            completion(.success(coins))
+            
+            guard httpResponse.statusCode == 200 else {
+                completion(.failure(.invalidStatusCode(statusCode: httpResponse.statusCode)))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(.invalidData))
+                return
+            }
+            
+            do {
+                let coins = try JSONDecoder().decode([Coin].self, from: data)
+                completion(.success(coins))
+            } catch {  // equals to "catch let error { -> swift implicitely does this for us
+                print("DEBUG: Failed to decode with error \(error)")
+                completion(.failure(.jsonParsingFailure))
+            }
         }.resume()
     }
 
-    
-    
+
     // completion handler getting back an array of coins
     func fetchCoins(completion: @escaping([Coin]?, Error?) -> Void) {
         guard let url = URL(string: urlString) else { return }
