@@ -9,6 +9,25 @@ import Foundation
 
 class CoinDataService {
     private let urlString = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&locale=en"
+    
+    func fetchCoins() async throws -> [Coin]{
+        guard let url = URL(string: urlString) else { return [] }
+        
+        print("DEBUG: Fetching data...")
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            let coins = try JSONDecoder().decode([Coin].self, from: data)
+            return coins
+        } catch {
+            print("DEBUG: Error: \(error.localizedDescription)")
+            return []
+        }
+    }
+}
+
+// MARK: - Completion Handlers
+
+extension CoinDataService {
     // Using Result type
     func fetchCoinsWithResult(completion: @escaping(Result<[Coin], CoinAPIError>) -> Void) {
         guard let url = URL(string: urlString) else { return }
@@ -41,28 +60,6 @@ class CoinDataService {
                 print("DEBUG: Failed to decode with error \(error)")
                 completion(.failure(.jsonParsingFailure))
             }
-        }.resume()
-    }
-
-
-    // completion handler getting back an array of coins
-    func fetchCoins(completion: @escaping([Coin]?, Error?) -> Void) {
-        guard let url = URL(string: urlString) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(nil, error)
-                return
-            }
-            
-            guard let data = data else { return }
-            
-            guard let coins = try? JSONDecoder().decode([Coin].self, from: data) else {
-                print("DEBUG: Failed to decode coins")
-                return
-            }
-
-            completion(coins, nil)
         }.resume()
     }
     
