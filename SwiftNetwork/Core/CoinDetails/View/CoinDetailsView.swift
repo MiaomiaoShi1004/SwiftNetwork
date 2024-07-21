@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CoinDetailsView: View {
-    // dependency injection
+    // dependency injection - this view is fully depend on this coin
     let coin: Coin
     @ObservedObject var viewModel: CoinDetailsViewModel
     
@@ -18,7 +18,22 @@ struct CoinDetailsView: View {
     }
     
     var body: some View {
-        Text(coin.name)
+        //unwrap CoinDetails?
+        if let details = viewModel.coinDetails {
+            VStack (alignment: .leading) {
+                Text(details.name)
+                    .fontWeight(.semibold)
+                    .font(.subheadline)
+                
+                Text(details.symbol.uppercased())
+                    .font(.footnote)
+                
+                Text(details.description.text)
+                    .font(.footnote)
+                    .padding(.vertical)
+            }
+            .padding()
+        }
     }
 }
 

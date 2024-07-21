@@ -10,7 +10,6 @@ import Foundation
 class CoinDataService {
     private let urlString = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&locale=en"
     
-    private let detailsUrl = "https://api.coingecko.com/api/v3/coins/bitcoin"
     
     func fetchCoins() async throws -> [Coin] {
         guard let url = URL(string: urlString) else { return [] }
@@ -35,6 +34,8 @@ class CoinDataService {
     }
     
     func fetchCoinDetails(id: String) async throws -> CoinDetails? {
+        let detailsUrl = "https://api.coingecko.com/api/v3/coins/\(id)"
+
         guard let detailsUrl = URL(string: detailsUrl) else { return nil }
 
         let (data, response) = try await URLSession.shared.data(from: detailsUrl)
