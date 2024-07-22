@@ -18,6 +18,9 @@
 		AA67A3DB2C4DB7E700E52E16 /* SwiftNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA67A3DA2C4DB7E700E52E16 /* SwiftNetworkTests.swift */; };
 		AA67A3E42C4DB8CE00E52E16 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA67A3E32C4DB8CE00E52E16 /* TestData.swift */; };
 		AA67A3E62C4DBE7600E52E16 /* CoinViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA67A3E52C4DBE7600E52E16 /* CoinViewModelTests.swift */; };
+		AA67A3E82C4E498A00E52E16 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA67A3E72C4E498A00E52E16 /* ImageLoader.swift */; };
+		AA67A3EB2C4E49A100E52E16 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA67A3EA2C4E49A100E52E16 /* ImageCache.swift */; };
+		AA67A3EF2C4E49DE00E52E16 /* CoinImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA67A3EE2C4E49DE00E52E16 /* CoinImageView.swift */; };
 		AA9934D92C4ADB3F00B35B43 /* SwiftNetworkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9934D82C4ADB3F00B35B43 /* SwiftNetworkApp.swift */; };
 		AA9934DB2C4ADB3F00B35B43 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9934DA2C4ADB3F00B35B43 /* ContentView.swift */; };
 		AA9934DD2C4ADB4100B35B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA9934DC2C4ADB4100B35B43 /* Assets.xcassets */; };
@@ -49,6 +52,9 @@
 		AA67A3DA2C4DB7E700E52E16 /* SwiftNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNetworkTests.swift; sourceTree = "<group>"; };
 		AA67A3E32C4DB8CE00E52E16 /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		AA67A3E52C4DBE7600E52E16 /* CoinViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinViewModelTests.swift; sourceTree = "<group>"; };
+		AA67A3E72C4E498A00E52E16 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		AA67A3EA2C4E49A100E52E16 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		AA67A3EE2C4E49DE00E52E16 /* CoinImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinImageView.swift; sourceTree = "<group>"; };
 		AA9934D52C4ADB3F00B35B43 /* SwiftNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA9934D82C4ADB3F00B35B43 /* SwiftNetworkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftNetworkApp.swift; sourceTree = "<group>"; };
 		AA9934DA2C4ADB3F00B35B43 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -114,6 +120,7 @@
 		AA67A3CB2C4D876400E52E16 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				AA67A3E92C4E499900E52E16 /* Image */,
 				AA67A3CC2C4D877200E52E16 /* API */,
 			);
 			path = Shared;
@@ -143,6 +150,16 @@
 				AA67A3E52C4DBE7600E52E16 /* CoinViewModelTests.swift */,
 			);
 			path = SwiftNetworkTests;
+			sourceTree = "<group>";
+		};
+		AA67A3E92C4E499900E52E16 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				AA67A3E72C4E498A00E52E16 /* ImageLoader.swift */,
+				AA67A3EA2C4E49A100E52E16 /* ImageCache.swift */,
+				AA67A3EE2C4E49DE00E52E16 /* CoinImageView.swift */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 		AA9934CC2C4ADB3F00B35B43 = {
@@ -366,7 +383,10 @@
 				AA9934D92C4ADB3F00B35B43 /* SwiftNetworkApp.swift in Sources */,
 				AA9934F22C4BF67100B35B43 /* CoinDataService.swift in Sources */,
 				AA67A3BE2C4C641800E52E16 /* Coin.swift in Sources */,
+				AA67A3EF2C4E49DE00E52E16 /* CoinImageView.swift in Sources */,
 				AA9934F02C4BA01000B35B43 /* CoinsViewModel.swift in Sources */,
+				AA67A3EB2C4E49A100E52E16 /* ImageCache.swift in Sources */,
+				AA67A3E82C4E498A00E52E16 /* ImageLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
