@@ -39,6 +39,9 @@ struct ContentView: View {
                     }
                 }
             }
+//            .task {
+//                await viewModel.fetchCoins()
+//            }
             .navigationDestination(for: Coin.self, destination: { coin in
                 CoinDetailsView(coin: coin, service: service)
             })
@@ -47,6 +50,9 @@ struct ContentView: View {
                     Text(error)
                 }
             }
+        }
+        .task {
+            await viewModel.fetchCoins()
         }
     }
 }

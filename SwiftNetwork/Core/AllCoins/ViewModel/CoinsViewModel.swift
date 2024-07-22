@@ -16,7 +16,7 @@ class CoinsViewModel: ObservableObject {
     
     init(service: CoinServiceProtocol) {
         self.service = service
-        Task { await fetchCoins() }
+//        Task { await fetchCoins() }
     }
     
     @MainActor
@@ -24,6 +24,7 @@ class CoinsViewModel: ObservableObject {
         do {
             let coins = try await service.fetchCoins()
             self.coins.append(contentsOf: coins)
+            print("DEBUG: Did fetch coins")
         } catch {
             guard let error = error as? CoinAPIError else { return }
             self.errorMessage = error.customDescription
