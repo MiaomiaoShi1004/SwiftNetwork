@@ -9,7 +9,7 @@ import Foundation
 
 class MockCoinService: CoinServiceProtocol {
     func fetchCoins() async throws -> [Coin] {
-        let bitcoin = Coin(id: "bitcoin", symbol: "btc", name: "Bitcoin", currentPrice: 26000, marketCapRank: 1)
+        let bitcoin = Coin(id: "bitcoin", symbol: "btc", name: "Bitcoin", currentPrice: 26000, marketCapRank: 1, image: " ")
         return [bitcoin]
     }
 
