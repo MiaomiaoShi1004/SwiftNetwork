@@ -7,7 +7,7 @@
 
 import XCTest
 @testable import SwiftNetwork
-/*
+
 class CoinsViewModelTests: XCTestCase {
 
     func testInit() {
@@ -59,4 +59,3 @@ class CoinsViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.errorMessage, CoinAPIError.invalidStatusCode(statusCode: 404).customDescription)
     }
 }
-*/
