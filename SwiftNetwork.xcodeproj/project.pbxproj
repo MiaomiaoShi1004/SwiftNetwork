@@ -21,6 +21,7 @@
 		AA67A3E82C4E498A00E52E16 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA67A3E72C4E498A00E52E16 /* ImageLoader.swift */; };
 		AA67A3EB2C4E49A100E52E16 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA67A3EA2C4E49A100E52E16 /* ImageCache.swift */; };
 		AA67A3EF2C4E49DE00E52E16 /* CoinImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA67A3EE2C4E49DE00E52E16 /* CoinImageView.swift */; };
+		AA6A65352C4EFBC80003D2BF /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA67A3E32C4DB8CE00E52E16 /* TestData.swift */; };
 		AA9934D92C4ADB3F00B35B43 /* SwiftNetworkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9934D82C4ADB3F00B35B43 /* SwiftNetworkApp.swift */; };
 		AA9934DB2C4ADB3F00B35B43 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9934DA2C4ADB3F00B35B43 /* ContentView.swift */; };
 		AA9934DD2C4ADB4100B35B43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA9934DC2C4ADB4100B35B43 /* Assets.xcassets */; };
@@ -375,6 +376,7 @@
 				AA67A3D32C4DB35500E52E16 /* MockCoinService.swift in Sources */,
 				AA67A3C42C4D4AE200E52E16 /* CoinDetailsView.swift in Sources */,
 				AA67A3D12C4D8FE900E52E16 /* CoinDetailsCache.swift in Sources */,
+				AA6A65352C4EFBC80003D2BF /* TestData.swift in Sources */,
 				AA67A3CA2C4D535200E52E16 /* CoinDetailsViewModel.swift in Sources */,
 				AA67A3C02C4C773200E52E16 /* CoinAPIError.swift in Sources */,
 				AA9934DB2C4ADB3F00B35B43 /* ContentView.swift in Sources */,
