@@ -600,3 +600,72 @@ let mockCoinData_marketCapDesc: Data = """
   }
 ]
 """.data(using: .utf8)!
+
+//  invalid name key in bitcoin
+
+let mockCoins_invalidJSON = """
+[
+  {
+    "id": "bitcoin",
+    "symbol": "btc",
+    "asd;ljfasd;lkfj": "Bitcoin",
+    "image": "https://coin-images.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
+    "current_price": 67950,
+    "market_cap": 1342640154560,
+    "market_cap_rank": 1,
+    "fully_diluted_valuation": 1429140372820,
+    "total_volume": 26508028113,
+    "high_24h": 68236,
+    "low_24h": 65884,
+    "price_change_24h": 824.23,
+    "price_change_percentage_24h": 1.22789,
+    "market_cap_change_24h": 18435318371,
+    "market_cap_change_percentage_24h": 1.39218,
+    "circulating_supply": 19728953,
+    "total_supply": 21000000,
+    "max_supply": 21000000,
+    "ath": 73738,
+    "ath_change_percentage": -7.46158,
+    "ath_date": "2024-03-14T07:10:36.635Z",
+    "atl": 67.81,
+    "atl_change_percentage": 100529.59319,
+    "atl_date": "2013-07-06T00:00:00.000Z",
+    "roi": null,
+    "last_updated": "2024-07-21T21:50:11.069Z",
+    "price_change_percentage_24h_in_currency": 1.2278900171250642
+  },
+  {
+    "id": "ethereum",
+    "symbol": "eth",
+    "name": "Ethereum",
+    "image": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
+    "current_price": 3506.56,
+    "market_cap": 422343087948,
+    "market_cap_rank": 2,
+    "fully_diluted_valuation": 422343087948,
+    "total_volume": 11732387914,
+    "high_24h": 3528.16,
+    "low_24h": 3430.06,
+    "price_change_24h": -12.05126231992017,
+    "price_change_percentage_24h": -0.3425,
+    "market_cap_change_24h": -665807851.928772,
+    "market_cap_change_percentage_24h": -0.1574,
+    "circulating_supply": 120228315.019602,
+    "total_supply": 120228315.019602,
+    "max_supply": null,
+    "ath": 4878.26,
+    "ath_change_percentage": -28.10972,
+    "ath_date": "2021-11-10T14:24:19.604Z",
+    "atl": 0.432979,
+    "atl_change_percentage": 809869.12645,
+    "atl_date": "2015-10-20T00:00:00.000Z",
+    "roi": {
+      "times": 67.94313229503356,
+      "currency": "btc",
+      "percentage": 6794.313229503356
+    },
+    "last_updated": "2024-07-21T21:50:14.675Z",
+    "price_change_percentage_24h_in_currency": -0.34250093591883696
+  }
+]
+""".data(using: .utf8)
