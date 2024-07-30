@@ -8,7 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var viewModel = CoinsViewModel()
+    private let service: CoinServiceProtocol
+    @StateObject var viewModel: CoinsViewModel
+    
+    init(service: CoinServiceProtocol) {
+        self.service = service
+        self._viewModel = StateObject(wrappedValue: CoinsViewModel(service: service))
+    }
     
     var body: some View {
         NavigationStack{
@@ -17,6 +23,11 @@ struct ContentView: View {
                     NavigationLink(value: coin) {
                         HStack(spacing: 12) {
                             Text("\(coin.marketCapRank)").foregroundColor(.gray)
+                            
+
+                            CoinImageView(url: coin.image)
+                                .frame(width: 32, height: 32)
+                            
                             VStack(alignment: .leading, spacing: 4) {
                                 Text(coin.name)
                                     .fontWeight(.semibold)
@@ -24,12 +35,20 @@ struct ContentView: View {
                                 Text(coin.symbol.uppercased())
                             }
                         }
+                        .onAppear {
+                            if coin == viewModel.coins.last {
+                                Task { await viewModel.fetchCoins() }
+                            }
+                        }
                         .font(.footnote)
                     }
                 }
             }
+//            .task {
+//                await viewModel.fetchCoins()
+//            }
             .navigationDestination(for: Coin.self, destination: { coin in
-                CoinDetailsView(coin: coin)
+                CoinDetailsView(coin: coin, service: service)
             })
             .overlay {
                 if let error = viewModel.errorMessage {
@@ -37,9 +56,12 @@ struct ContentView: View {
                 }
             }
         }
+        .task {
+            await viewModel.fetchCoins()
+        }
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(service: MockCoinService())
 }

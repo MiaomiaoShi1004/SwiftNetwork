@@ -12,20 +12,29 @@ struct CoinDetailsView: View {
     let coin: Coin
     @ObservedObject var viewModel: CoinDetailsViewModel
     
-    init(coin: Coin) {
+    init(coin: Coin, service: CoinServiceProtocol) {
         self.coin = coin
-        self.viewModel = CoinDetailsViewModel(coinId: coin.id)
+        self.viewModel = CoinDetailsViewModel(coinId: coin.id, service: service)
     }
     
     var body: some View {
         VStack(alignment: .leading) {
             if let details = viewModel.coinDetails {
-                Text(details.name)
-                    .fontWeight(.semibold)
-                    .font(.subheadline)
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(details.name)
+                            .fontWeight(.semibold)
+                            .font(.subheadline)
 
-                Text(details.symbol.uppercased())
-                    .font(.footnote)
+                        Text(details.symbol.uppercased())
+                            .font(.footnote)
+                    }
+                    Spacer()
+                    
+                    CoinImageView(url: coin.image)
+                        .frame(width: 64, height: 64)
+
+                }
 
                 Text(details.description.text)
                     .font(.footnote)
